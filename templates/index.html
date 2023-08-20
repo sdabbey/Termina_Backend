@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'themes.css' %}">
+    <title>Termina - Accuel</title>
+</head>
+<body>
+    <div class="landing_page">
+        
+        <img src="{% static 'images/logo.png' %}" alt="">
+        <hr>
+        <h1>Termina</h1>
+        <span>Bulgaria</span>
+
+        <select id="language-dropdown">
+            <option value="" disabled selected>Change Language</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="ru">Russian</option>
+        </select>
+    </div>
+    <!-- About Page -->
+    <div class="about_page">
+        <h2 id="about-title">About</h2>
+        <hr>
+        <p id="about-content">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+        <div class="page-content">
+           <div class="section" data-section-id="our-process">
+                <h3>Our Process</h3>
+                <p>Original content for Our Process...</p>
+           </div>
+           <div class="section" data-section-id="our-approach">
+                <h3>Our Approach</h3>
+                <p>Original content for Our Process...</p>
+           </div>
+           <div class="section" data-section-id="our-goal">
+                <h3>Our Goal</h3>
+                <p>Original content for Our Process...</p>
+           </div>
+           <div class="section" data-section-id="our-mission">
+                <h3>Our Mission</h3>
+                <p>Original content for Our Process...</p>
+            </div>
+           <!-- Add more sections as needed -->
+       </div>
+    </div>
+
+    <!-- The Team -->
+    <div class="team_page">
+        <h2>Team</h2>
+        <hr>
+        {% for team in teams %}
+        <p>{{team.info}}</p>
+        {% endfor %}
+        <div class="card-list">
+            {% for teammate in team_mates %}
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{teammate.profile_pic.url}}" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>{{teammate.last_name}}</h3>
+                        <h3>{{teammate.first_name}}</h3>
+                        <span>{{teammate.position}}</span>
+                    </div>
+                </div>
+            {% endfor %}
+           
+        </div>
+    </div>
+
+    <!-- Newsroom -->
+    <div class="newsroom_page">
+        <h2>Newsroom</h2>
+        <hr>
+        <div class="news-card-list">
+           {% for news in newsroom_news %}
+                <div class="news-card">
+                    <div class="overlay"></div>
+                    <img src="{{news.image.url}}" alt="">
+                </div>
+           {% endfor %}
+           
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact_page">
+        <h2>Contact</h2>
+        <hr>
+        <form action="">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="name">Email:</label>
+                <input type="email" name="email">
+            </div>
+            <div class="textbox">
+                <label for="message">Message:</label>
+                <textarea name="message" id=""></textarea>
+            </div>
+            <div>
+                <button class="btn" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
