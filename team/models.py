@@ -9,7 +9,7 @@ class Team(models.Model):
         return self.info
     
 class Team_mate(models.Model):
-    profile_pic = models.ImageField(upload_to="media/pictures",  default="default.png")
+    profile_pic = models.ImageField(upload_to="pictures",  default="default.png")
     last_name = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
